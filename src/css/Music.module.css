@@ -1,0 +1,11 @@
+.title{
+    color: red;
+}
+
+.descr{
+    background-color: green;
+}
+
+.onSale {
+    text-decoration: overline;
+}

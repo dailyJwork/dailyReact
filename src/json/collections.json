@@ -1,0 +1,27 @@
+[
+  {
+    "id": 0,
+    "audio": "rock",
+    "isPlaying": false
+  },
+  {
+    "id": 1,
+    "audio": "Plugg",
+    "isPlaying": true
+  },
+  {
+    "id": 2,
+    "audio": "RnB",
+    "isPlaying": true
+  },
+  {
+    "id": 3,
+    "audio": "Alternative",
+    "isPlaying": false
+  },
+  {
+    "id": 4,
+    "audio": "Jazz",
+    "isPlaying": true
+  }
+]

@@ -1,0 +1,37 @@
+.quizList{
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    max-width: 700px;
+    margin-top: 30px;
+}
+
+.quizItems{
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+
+.quizItemBtn {
+    padding: 10px;
+    background-color: aquamarine;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    transition:cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.quizItemBtn:hover{
+    background-color: chocolate;
+    color: aliceblue;
+}
+
+.quizItemsContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
