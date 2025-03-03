@@ -50,5 +50,6 @@ createRoot(document.querySelector(".works")).render(
     {/* <MaterialApp/> */}
     <ImageGalleryApp/>
     <h2>-----------------------------</h2>
+    <p>test</p>
   </StrictMode>
 )
