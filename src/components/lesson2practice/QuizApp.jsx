@@ -39,7 +39,6 @@ export class QuizApp extends Component {
     try {
       this.setState({
         isLoading: true,
-        error: false
       });
       const initialQuizzez = await fetchQuizzez();
       this.setState({
@@ -80,7 +79,6 @@ export class QuizApp extends Component {
     try {
       this.setState({
         isLoading: true,
-        error: false
       });
       const deletedEl = await deleteQuizById(quizId);
       this.setState((prevState) => {
@@ -113,7 +111,6 @@ export class QuizApp extends Component {
     try {
       this.setState({
         isLoading: true,
-        error: false
       });
       const addedQuiz = await addNewQuizz(newItem);
       this.setState((prevState) => {
@@ -132,7 +129,7 @@ export class QuizApp extends Component {
   };
 
   render() {
-    const { quizItems, filters, isLoading, error } = this.state;
+    const { quizItems, filters, isLoading } = this.state;
 
     const visibleQuizItems = quizItems.filter((el) => {
       const hasTopic = el.topic
