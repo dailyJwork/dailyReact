@@ -8,15 +8,21 @@ import { ImagesForm } from "./ImageForm";
 export class ImageGalleryApp extends Component {
   state = {
     images: [],
+    query: "",
     isLoading: false,
+    page: 1,
+    isLoadMore: false,
   };
 
-  async componentDidMount() {
+  onSubmit = async (event) => {
+    event.preventDefault();
+    const query = event.target.imgSearch.value;
+
     try {
       this.setState({
         isLoading: true,
       });
-      const fetchedImages = await fetchImg();
+      const fetchedImages = await fetchImg(query, this.state.page);
       this.setState({
         images: fetchedImages,
       });
@@ -25,19 +31,43 @@ export class ImageGalleryApp extends Component {
     } finally {
       this.setState({
         isLoading: false,
+        isLoadMore: true,
       });
+    }
+  };
+
+  onLoadMoreClick = async () => {
+    try {
+      this.setState((prevState) => {
+        return {
+          page: (prevState.page += 1)
+        };
+      });
+    } catch (error) {
+      toast.error("Something went wrong");
+    }
+  };
+
+  async componentDidUpdate(prevProps, prevState) {
+    if (
+      prevState.page !== this.state.page ||
+      prevState.query !== this.state.query
+    ) {
+      try {
+        const updatedPageImages = await fetchImg(
+          this.state.query,
+          this.state.page
+        );
+        this.setState({
+          images: updatedPageImages,
+        });
+      } catch (error) {}
+      toast.error("Something went wrong");
     }
   }
 
-  onSubmit = (event) => {
-    event.preventDefault();
-    const query = event.target.imgSearch.value;
-    console.log(query);
-    return query
-  };
-
   render() {
-    const { images, isLoading } = this.state;
+    const { images, isLoading, isLoadMore } = this.state;
 
     return (
       <>
@@ -45,6 +75,9 @@ export class ImageGalleryApp extends Component {
         <ImagesForm onSubmit={this.onSubmit} />
         {isLoading && <p>Loading...</p>}
         <ImagesList items={images} />
+        {isLoadMore && (
+          <button onClick={this.onLoadMoreClick}>Load More</button>
+        )}
         <Toaster />
       </>
     );

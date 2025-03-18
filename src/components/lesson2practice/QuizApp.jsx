@@ -17,7 +17,7 @@ export class QuizApp extends Component {
     },
     isLoading: false
   };
-
+  
   componentDidUpdate(prevProps, prevState) {
     if (prevState.filters !== this.state.filters) {
       localStorage.setItem(

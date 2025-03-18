@@ -1,0 +1,22 @@
+[
+  {
+    "id": "1",
+    "title": ".docx",
+    "persent": "32%"
+  },
+  {
+    "id": "2",
+    "title": ".pdf",
+    "persent": "4%"
+  },
+  {
+    "id": "3",
+    "title": ".mp3",
+    "persent": "17%"
+  },
+  {
+    "id": "4",
+    "title": ".psd",
+    "persent": "47%"
+  }
+]
