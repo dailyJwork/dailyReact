@@ -55,14 +55,6 @@ export class ContactBook extends Component {
     });
   };
 
-  onUpdateContactName = (newName) => {
-    this.setState(() => {
-      return {
-        name: newName
-      }
-    })
-  }
-
   render() {
     const visibleContacts = this.state.contacts.filter((el) => {
       return el.name
@@ -74,7 +66,7 @@ export class ContactBook extends Component {
       <>
         <h1>Contacts Book</h1>
         <ContactForm onAdd={this.addElement} />
-        <ContactFilter contacts={this.state.contacts} onUpdateName={this.onUpdateContactName}/>
+        <ContactFilter contacts={this.state.contacts}/>
         <ContactList items={visibleContacts} onDelete={this.onDelete} />
       </>
     );
